@@ -25,13 +25,12 @@
                 },
                 screens: {
                     '2xl': { 'max': '1535px' },
-                    // => @media (max-width: 1535px) { ... }
+
+                    'lg': { 'min': '1024px' },
 
                     'xl': { 'max': '1279px' },
-                    // => @media (max-width: 1279px) { ... }
 
                     'sm': { 'max': '1024px' },
-                    // => @media (max-width: 639px) { ... }
                 }
 
             }
@@ -50,15 +49,15 @@
       </style>
 </head>
 
-<body class="pl-40 pr-40 sm:pr-10 sm:pl-10 md:p-0">
+<body class="pl-40 pr-40 sm:pr-10 sm:pl-10 xl:pl-20 xl:pr-20">
 
     <header>
         <nav id="nav" class="flex items-center justify-between font-mainFont h-[10vh] w-full bg-white">
             <div class="nav-logo">
-                <img src="./assets/nav-logo.png" alt="" width="200" class="sm:w-full md:w-full">
+                <img src="./assets/nav-logo.png" alt="" width="200" class="sm:w-full xl:w-full">
             </div>
-            <div class="nav-links sm:w-full sm:h-full md:w-full md:h-full">
-                <ul class="flex items-center justify-center box-border sm:hidden sm:flex-col sm:absolute sm:w-full sm:top-14 sm:right-0 sm:text-center sm:bg-white"
+            <div class="nav-links sm:w-full sm:h-full xl:w-full xl:h-full">
+                <ul class="flex items-center justify-center box-border sm:hidden sm:flex-col sm:absolute sm:w-full sm:top-24 sm:right-0 sm:text-center sm:bg-white sm:p-5"
                     id="nav-links">
                     <a href="#home">
                         <li class="nav-link p-5 text-zinc-500 duration-75 hover:border-b-4 border-b-zinc-200 active">
@@ -79,9 +78,14 @@
                             Pricing
                         </li>
                     </a>
+                    <div class="auth-btn lg:hidden">
+                        <a href=""><button
+                                class="w-32 bg-green text-white h-10 rounded-bl-[100px] rounded-tr-[100px] rounded-br-lg rounded-tl-lg">Sign
+                                Up</button></a>
+                    </div>
                 </ul>
             </div>
-            <div class="auth-btn">
+            <div class="auth-btn sm:hidden">
                 <a href=""><button
                         class="w-32 bg-green text-white h-10 rounded-bl-[100px] rounded-tr-[100px] rounded-br-lg rounded-tl-lg">Sign
                         Up</button></a>
@@ -93,7 +97,7 @@
     </header>
 
     <section id="home"
-        class="flex items-center content-center h-[90vh] sm:flex sm:flex-col sm:text-center sm:pt-20 xl:pt-56">
+        class="flex items-center content-center h-[90vh] sm:flex sm:flex-col sm:text-center sm:pt-40 xl:pt-64">
         <div class="w-[50%] sm:w-full">
             <h2 class="text-3xl uppercase font-normal">fresh fruit for you</h2>
             <h1 class="text-8xl text-green">Eat as you want</h1>
@@ -108,7 +112,7 @@
                     class="w-36 bg-green text-white h-12 shadow-2xl rounded-bl-[100px] rounded-tr-[100px] rounded-br-lg rounded-tl-lg">Add
                     To Cart</button>
                 <button
-                    class="w-36 bg-white text-green border-[1px] shadow-2xl h-12 rounded-bl-[100px] rounded-tr-[100px] rounded-br-lg rounded-tl-lg">Learn
+                    class="w-36 bg-white text-green border-[1px] shadow-2xl h-12 rounded-bl-[100px] rounded-tr-[100px] rounded-br-lg rounded-tl-lg sm:ml-5 xl:ml-5">Learn
                     More</button>
             </div>
         </div>
@@ -193,7 +197,7 @@
             <div class="">
                 <div class=" w-[360px] flex justify-between items-center">
                     <div
-                        class="w-[60px] h-[50px] text-green font-semibold text-2xl bg-white shadow-[0px_8px_24px_rgba(149,157,165,0.2)] rounded-full flex items-center justify-center">
+                        class="w-[60px] h-[60px] text-green font-semibold text-2xl bg-white shadow-[0px_8px_24px_rgba(149,157,165,0.2)] rounded-full flex items-center justify-center">
                         <h1>1</h1>
                     </div>
                     <div class="">
@@ -203,7 +207,7 @@
                 </div>
                 <div class=" w-[380px] flex justify-between items-center pt-5">
                     <div
-                        class="w-[60px] h-[50px] text-green font-semibold text-2xl bg-white shadow-[0px_8px_24px_rgba(149,157,165,0.2)] rounded-full flex items-center justify-center">
+                        class="w-[60px] h-[60px] text-green font-semibold text-2xl bg-white shadow-[0px_8px_24px_rgba(149,157,165,0.2)] rounded-full flex items-center justify-center">
                         <h1>2</h1>
                     </div>
                     <div class="">
@@ -240,7 +244,7 @@
     </section>
 
     <section id="pricing" class="pt-32">
-        <div class="flex items-center justify-around sm:flex-col">
+        <div class="flex items-center justify-around sm:flex-col xl:flex-col">
             <div
                 class="text-center w-[400px] rounded-2xl h-[600px] flex items-center justify-center flex-col border-2 border-neutral-400 border-opacity-5 p-20">
                 <div>
@@ -310,7 +314,7 @@
 
     <section id="subscription" class="flex items-center justify-center pt-16 pb-44">
         <div
-            class="flex items-center justify-center w-[100%] h-[300px] shadow-2xl sm:h-[500px] rounded-2xl sm:flex-col sm:text-center">
+            class="flex items-center justify-center w-[100%] h-[300px] shadow-2xl sm:h-[500px] rounded-2xl sm:flex-col sm:text-center sm:p-5">
             <div class="w-[50%] flex items-center justify-center">
                 <img src="./assets/raspberry.png" alt="">
             </div>
@@ -332,7 +336,7 @@
     </section>
 
 
-    <section id="contact" class="w-full h-64 flex items-center justify-center flex-col font-[Poppins] sm:pt-96">
+    <section id="contact" class="w-full h-64 flex items-center justify-center flex-col font-[Poppins] sm:pt-56">
         <hr class="bg-zinc-500 h-1 w-full">
         <div class="flex items-start justify-around pt-20 pb-14 sm:flex-col sm:items-center sm:">
             <div class="w-4/12 sm:w-full">
