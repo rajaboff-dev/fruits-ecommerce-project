@@ -1,6 +1,8 @@
 let hamburger = document.getElementById('bar')
 let navLinks = document.getElementById('nav-links')
 let signUpBtn = document.getElementById('sign-up-btn')
+let smSignUpBtn = document.getElementById('sm:sign-up-btn')
+
 let signUpModal = document.getElementById('sign-up')
 let authModalCloseBtn = document.getElementById('auth-modal-close')
 
@@ -27,6 +29,9 @@ hamburger.addEventListener('click', () => {
 
 
 signUpBtn.addEventListener('click', () => {
+    signUpModal.classList.toggle('hidden')
+})
+smSignUpBtn.addEventListener('click', () => {
     signUpModal.classList.toggle('hidden')
 })
 
