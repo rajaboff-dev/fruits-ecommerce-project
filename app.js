@@ -1,5 +1,11 @@
+let hamburger = document.getElementById('bar')
+let navLinks = document.getElementById('nav-links')
+let signUpBtn = document.getElementById('sign-up-btn')
+let signUpModal = document.getElementById('sign-up')
+let authModalCloseBtn = document.getElementById('auth-modal-close')
+
 document.addEventListener('DOMContentLoaded',
-    function (e) {
+    function () {
         const navItems = document
             .querySelectorAll('.nav-link');
  
@@ -11,12 +17,19 @@ document.addEventListener('DOMContentLoaded',
                     this.classList.add('active');
                 });
         });
-        e.preventDefault()
     });
 
 
-let hamburger = document.getElementById('bar')
-let navLinks = document.getElementById('nav-links')
+/*====================For Responsive===============*/
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('sm:hidden')
+})
+
+
+signUpBtn.addEventListener('click', () => {
+    signUpModal.classList.toggle('hidden')
+})
+
+authModalCloseBtn.addEventListener('click', () => {
+    signUpModal.classList.add('hidden')
 })
