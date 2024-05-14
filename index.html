@@ -4,15 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shopping fruits in Shalpping from the store</title>
+
+    <!-- ============for SEO ====================== -->
+    <meta name="description" content="Shalpping fruts store">
+    <meta name="description" content="fruts store">
+    <meta name="description" content="Shalpping">
+    <meta name="description" content="Shalpping store">
+    <meta name="description" content="Shallping shopping">
+
+
+
+
+    <!-- ============Fonts ====================== -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400..800&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+
+    <!-- ==================== Icon LIbrary ================= -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- ============style.css file================ -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- ============ Tailwind UI Library ====================== -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -44,7 +63,18 @@
         @layer utilities {
           html{
             font-family: 'Baloo Chettan 2', sans-serif;
+            scroll-behavior: smooth;
           }
+            ::-webkit-scrollbar {
+                width: 5px;
+            }
+            ::-webkit-scrollbar-track {
+                background: transparent; 
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #59BE29;
+                border-radius: 20px; 
+            }
           .active{
             color: #000;
             border-bottom: 4px solid black;
@@ -76,11 +106,11 @@
                             Us
                         </li>
                     </a>
-                    <a href="#">
+                    <a href="#fruts">
                         <li class="nav-link p-5 text-zinc-500 duration-75 hover:border-b-4 border-b-zinc-200">Fruts
                         </li>
                     </a>
-                    <a href="#">
+                    <a href="#pricing">
                         <li class="nav-link p-5 text-zinc-500 duration-75 hover:border-b-4 border-b-zinc-200">
                             Pricing
                         </li>
