@@ -92,11 +92,35 @@
           input:focus{
             outline: none;
           }
+          /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        .datepicker-dropdown{
+            border: none;
+        }
+        .datepicker-picker{
+            background: #fff !important;
+            border-bottom: 0px;
+        }
+        .datepicker-picker h1,h2,h3,h4,span,p{
+            color: #000 !important;
+        }
+        .datepicker-picker span:hover{
+            background: #b6b6b6;
+        }
         }
       </style>
 </head>
 
-<body class="pl-40 pr-40 sm:pr-10 sm:pl-10 xl:pl-20 xl:pr-20">
+<body class="pl-40 pr-40 sm:pr-10 sm:pl-10 xl:pl-24 xl:pr-24">
 
     <!-- ================= Navbar Section ======================  -->
 
@@ -159,7 +183,7 @@
                 vitamins and
                 minerals that can help to keep you healthy. .</p>
             <div class="pt-10">
-                <button
+                <button onclick="showAddCardModal()"
                     class="w-36 bg-green text-white h-12 shadow-2xl rounded-bl-[100px] rounded-tr-[100px] rounded-br-lg rounded-tl-lg">Add
                     To Cart</button>
                 <button
@@ -319,7 +343,7 @@
                     <p class="pt-2 text-zinc-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi</p>
                 </div>
                 <div class="pt-10">
-                    <button
+                    <button onclick="showAddCardModal()"
                         class="w-36 bg-green text-white h-12 shadow-2xl rounded-bl-[100px] rounded-tr-[100px] rounded-br-lg rounded-tl-lg">Add
                         To Cart</button>
                 </div>
@@ -340,7 +364,7 @@
                     <p class="pt-2 text-zinc-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi</p>
                 </div>
                 <div class="pt-10">
-                    <button
+                    <button onclick="showAddCardModal()"
                         class="w-36 bg-green text-white h-12 shadow-2xl rounded-bl-[100px] rounded-tr-[100px] rounded-br-lg  rounded-tl-lg">Add
                         To Cart</button>
                 </div>
@@ -361,7 +385,7 @@
                     <p class="pt-2 text-zinc-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi</p>
                 </div>
                 <div class="pt-10">
-                    <button
+                    <button onclick="showAddCardModal()"
                         class="w-36 bg-green text-white h-12 shadow-2xl rounded-bl-[100px] rounded-tr-[100px] rounded-br-lg rounded-tl-lg">Add
                         To Cart</button>
                 </div>
@@ -450,7 +474,7 @@
     <!-- ================= Sign Up Content ======================  -->
 
     <div id="sign-up"
-        class="hidden fixed w-[85%] h-full top-0 bg-[rgba(255,255,255,0.75)] flex items-center justify-center overflow-x-hidden sm:w-full">
+        class="hidden fixed w-[100%] h-full top-0 bg-[rgba(255,255,255,0.75)] flex items-center justify-center overflow-x-hidden sm:w-full left-0">
         <div class="bg-white w-4/12 h-4/6 flex border-zinc-100 border-2 flex-col items-center p-5 sm:w-full">
             <div class="flex justify-end w-full">
                 <div id="auth-modal-close" class="hover:bg-red-700 hover:text-white w-5 text-center ">
@@ -462,11 +486,11 @@
                 <form action="" class="flex flex-col content-around justify-center flex-wrap">
                     <div>
                         <p class="text-xl pt-5">Email</p>
-                        <input type="email" placeholder="Email" class="border-2 w-full h-10 rounded-full p-3"
-                            maxlength="50" minlength="15">
+                        <input type="email" id="auth-email" placeholder="Email"
+                            class="border-2 w-full h-10 rounded-full p-3" maxlength="50" minlength="15">
                         <p class="text-xl pt-5">Password</p>
-                        <input type="password" placeholder="Password" class="border-2 w-full h-10 rounded-full p-3"
-                            maxlength="100" minlength="6">
+                        <input type="password" id="auth-password" placeholder="Password"
+                            class="border-2 w-full h-10 rounded-full p-3" maxlength="100" minlength="6">
                     </div>
                     <div class="pt-16">
                         <button type="submit"
@@ -486,6 +510,56 @@
     </div>
 
 
+
+    <div id="add-cart"
+        class="hidden fixed w-[100%] h-full top-0 bg-[rgba(255,255,255,0.75)] flex items-center justify-center overflow-x-hidden sm:w-full left-0">
+        <div class="bg-white w-4/12 h-4/6 flex border-zinc-100 border-2 flex-col items-center p-5 sm:w-full">
+            <div class="flex justify-between w-full pb-5">
+                <div>
+                    <h1>Add Card</h1>
+                </div>
+                <div id="cart-modal-close" class="hover:bg-red-700 hover:text-white w-5 text-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <hr class="bg-zinc-100 h-[1px] w-full" />
+            <form action="" class="pt-14 w-full p-10">
+                <p>Card number</p>
+                <label class="border-2 w-full flex items-center justify-center p-3">
+                    <input type="text" maxlength="22" class="w-full" placeholder="0000  0000  0000  0000"
+                        pattern="[0-9]*" id="numbers" required>
+                    <span>
+                        <i class="fa-solid fa-credit-card"></i>
+                    </span>
+                </label>
+
+                <div class="flex items-center justify-between pb-5">
+                    <div class="w-36">
+                        <p>Card expiration</p>
+                        <label class="border-2 w-full flex items-center justify-center p-5 invalid:border-red-600">
+                            <input datepicker datepicker-format="mm/yy" type="text" class="w-full" placeholder="12/23"
+                                pattern="[0-9]" maxlength="4" required />
+                            <span>
+                                <i class="fa-solid fa-calendar"></i>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="w-36">
+                        <p>CVV</p>
+                        <label class="border-2 w-full flex items-center justify-center p-5 invalid:border-red-600">
+                            <input type="text" maxlength="3" class="w-full" placeholder="***">
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full h-10 bg-green rounded-md text-white">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
     <script src="./app.js"></script>
 </body>
 
